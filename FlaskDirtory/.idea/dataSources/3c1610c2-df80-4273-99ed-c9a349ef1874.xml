@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="Student">
+<dataSource name="Student_test">
   <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.14">
     <root id="1">
       <ServerVersion>3.25.1</ServerVersion>
@@ -208,7 +208,7 @@
     </column>
     <column id="57" parent="13" name="identity">
       <Position>4</Position>
-      <DataType>VARCHAR(32)|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
     </column>
     <column id="58" parent="13" name="identity_id">
       <Position>5</Position>

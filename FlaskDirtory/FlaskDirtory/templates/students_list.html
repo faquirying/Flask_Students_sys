@@ -6,6 +6,28 @@
 
 {% block container %}
     <div class="container-fluid">
+    <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+              添加教师
+            </a>
+          </div>
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">添加教师信息</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="" method="post">
+                <div><input type="text" class=""></div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
         <table class="table">
             <thead>
                 <tr>
@@ -16,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for student in students %}
+                {% for student in students_list %}
                 <tr>
                     <td>{{ student.name }}</td>
                     <td>{{ student.gender }}</td>

@@ -33,10 +33,23 @@ def LoginVaild(fun):
     return inner
 
 
-@app.route("/student_list/", methods=['GET', 'POST'])
-def student_list():
-    student_list = Student.query.all()
+@app.route("/students_list/", methods=['GET', 'POST'])
+def students_list():
+    students_list = Student.query.all()
     return render_template("students_list.html", **locals())
+
+
+@app.route("/teachers_list/", methods=['GET', 'POST'])
+def teachers_list():
+    teachers_list = Teacher.query.all()
+    return render_template("teachers_list.html", **locals())
+
+
+@csrf.exempt
+@app.route("/index/", methods=["GET","POST"])
+@LoginVaild
+def index():
+    return render_template("index.html")
 
 
 @csrf.exempt
@@ -50,7 +63,7 @@ def register():
             user.username = username
             user.password = setPassword(password)
             user.save()
-        return redirect("/student_list/")
+        return redirect("/login/")
     return render_template("register.html")
 
 
@@ -64,7 +77,7 @@ def login():
             user = User.query.filter_by(username=username).first()
             if user and user.password == setPassword(password):
                 # 进行跳转
-                response = redirect("/student_list/")
+                response = redirect("/index/")
                 # 设置cookie
                 response.set_cookie("username", username)
                 response.set_cookie("user_id", str(user.id))
@@ -73,15 +86,6 @@ def login():
                 # 返回跳转
                 return response
     return render_template("login.html", **locals())
-
-
-@app.route("/student_list/", methods=['GET', 'POST'])
-@LoginVaild
-def student_list():
-    students = Student.query.all()
-    print(students)
-    response = render_template("students_list.html", **locals())
-    return response
 
 
 @app.route("/base/")

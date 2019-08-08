@@ -107,3 +107,5 @@ class Teacher(BaseModel):
     age = models.Column(models.Integer)
     gender = models.Column(models.Integer)
     course_id = models.Column(models.Integer, models.ForeignKey("course.id"))
+
+
