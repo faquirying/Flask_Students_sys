@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title%}
+    学生
+{% endblock %}
+{% block container %}
+    <div>
+        <table class="table">
+            <thead>
+                <th>name</th>
+                <th>age</th>
+                <th>score</th>
+                <th>operations</th>
+            </thead>
+            <tbody>
+                {% for student in student_list %}
+                    <tr>
+                        <!--<td>{{ student.name.zfill(3) }}</td>   zfill(3)字符共3位，不够三位的左边添0-->
+                        <td>{{ student.name}}</td>
+                        <td>{{ student.age }}</td>
+                        <td>{{ student.score }}</td>
+                        <td>
+                            <button class="btn btn-danger">开除</button>
+                            <button class="btn btn-primary">奖励</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

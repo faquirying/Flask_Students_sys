@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    教室注册
+{% endblock %}
+{% block container %}
+    <div class="p-5">
+        <form method="post">
+            {{ teacher_form.csrf_token }}
+            <div>
+                {{ teacher_form.name }}
+                <br>
+            </div>
+            <div>
+                {{ teacher_form.age }}
+                <br>
+            </div>
+            <div>
+                {{ teacher_form.gender }}
+                <br>
+            </div>
+            <div>
+                {{ teacher_form.course }}
+                <br>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary btn-block" value="提交">
+                <br>
+            </div>
+        </form>
+    </div>
+{% endblock %}
